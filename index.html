@@ -63,7 +63,7 @@
       max-height:0; overflow:hidden; transition:max-height .25s ease;
       border-bottom:1px solid rgba(255,255,255,0.08);
     }
-    nav.links.open{max-height:320px;}
+    nav.links.open{max-height:420px;}
     nav.links a{padding:14px 24px; border-top:1px solid rgba(255,255,255,0.06);}
     .nav-toggle{display:block;}
   }
@@ -156,6 +156,23 @@
   .outcome-card h3{margin:0 0 10px; color:var(--navy); font-size:1.08rem;}
   .outcome-card p{margin:0; color:var(--ink-soft); font-size:0.94rem;}
 
+  /* team */
+  .team-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:22px; margin-top:36px;}
+  .team-card{
+    background:#fff; border:1px solid var(--line); border-radius:14px; padding:24px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .team-card h3{margin:0; color:var(--navy); font-size:1.05rem;}
+  .team-role{
+    display:inline-block; align-self:flex-start; font-size:0.72rem; font-weight:700;
+    text-transform:uppercase; letter-spacing:0.05em; color:var(--teal);
+    background:var(--aqua-light); border-radius:999px; padding:4px 10px;
+  }
+  .team-org{color:var(--ink-soft); font-size:0.88rem; margin:0;}
+  .team-desc{color:var(--ink-soft); font-size:0.92rem; margin:0;}
+  .team-card a.profile-link{font-size:0.88rem; font-weight:600; text-decoration:none; margin-top:auto;}
+  .team-card a.profile-link:hover{text-decoration:underline;}
+
   /* references */
   #references{background:var(--navy); color:#dce9e7;}
   #references .kicker{color:var(--aqua-light);}
@@ -195,6 +212,7 @@
       <a href="#pilot">Pilot</a>
       <a href="#innovation">Innovation</a>
       <a href="#outcomes">Outcomes</a>
+      <a href="#team">Team</a>
       <a href="#references">References</a>
     </nav>
   </div>
@@ -383,6 +401,44 @@
   </div>
 </section>
 
+<section id="team" style="background:#fff;">
+  <div class="wrap">
+    <p class="kicker">Team</p>
+    <h2>Project team</h2>
+    <p class="lead">The people behind BlueLab, across Maastricht University and BISS.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <span class="team-role">Main applicant</span>
+        <h3>Rohan Nanda</h3>
+        <p class="team-org">Maastricht University · Assistant Professor</p>
+        <p class="team-desc">Technical lead and course coordinator. Develops dashboard and AI-supported compliance workflow.</p>
+        <a class="profile-link" href="https://www.maastrichtuniversity.nl/r-nanda" target="_blank" rel="noopener">View profile →</a>
+      </div>
+      <div class="team-card">
+        <span class="team-role">Co-applicant</span>
+        <h3>Henrique Marcos</h3>
+        <p class="team-org">Maastricht University · Lecturer</p>
+        <p class="team-desc">Legal expert. Designs case scenarios and rubrics. Delivers ESG module and tutorial guidance.</p>
+        <a class="profile-link" href="https://www.maastrichtuniversity.nl/h-jeronimo-bezerra-marcos" target="_blank" rel="noopener">View profile →</a>
+      </div>
+      <div class="team-card">
+        <span class="team-role">Software Engineer</span>
+        <h3>Shashank Chakravarthy</h3>
+        <p class="team-org">BISS · Software Engineer</p>
+        <p class="team-desc">Supports long-term usability and post-project upkeep.</p>
+        <a class="profile-link" href="https://www.biss-institute.com/en/team/shashank-chakravarthy" target="_blank" rel="noopener">View profile →</a>
+      </div>
+      <div class="team-card">
+        <span class="team-role">Software Engineer</span>
+        <h3>Carlos Aguilera</h3>
+        <p class="team-org">BISS · Software Engineer</p>
+        <p class="team-desc">Supports long-term usability and post-project upkeep.</p>
+        <a class="profile-link" href="https://www.biss-institute.com/en/team/carlos-aguilera" target="_blank" rel="noopener">View profile →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="references">
   <div class="wrap">
     <p class="kicker">References</p>
@@ -416,7 +472,7 @@
 
 <footer>
   <div class="wrap">
-    <span>Maastricht University · BISS — Legal Analytics, Bachelor of Laws</span>
+    <span>Maastricht University · Law & Tech Lab · BISS </span>
     <div class="footer-links">
       <a href="https://www.nwo.nl/en/projects/zayxj84194" target="_blank" rel="noopener">NWO project page</a>
       <a href="https://github.com/MaastrichtU-BISS/bluelab" target="_blank" rel="noopener">GitHub repository</a>
