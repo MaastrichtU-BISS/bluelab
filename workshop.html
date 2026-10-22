@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Practitioner workshop — BlueLab</title>
+<meta name="description" content="BlueLab practitioner workshop, Friday 4 December 2026, Stayokay Maastricht.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a2540'/%3E%3Cpath d='M10 60 Q30 45 50 60 T90 60' stroke='%2325b8b0' stroke-width='8' fill='none' stroke-linecap='round'/%3E%3Cpath d='M10 78 Q30 63 50 78 T90 78' stroke='%23bfe6e3' stroke-width='6' fill='none' stroke-linecap='round' opacity='0.7'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light;
+    --navy: #0a2540;
+    --navy-2: #0e3355;
+    --teal: #0f6674;
+    --aqua: #25b8b0;
+    --aqua-light: #bfe6e3;
+    --paper: #f7f9f8;
+    --tint: #eef4f3;
+    --surface: #ffffff;
+    --ink: #10222c;
+    --ink-soft: #45606b;
+    --heading: #0a2540;
+    --line: #dbe7e6;
+    --link: #0f6674;
+    --pill-bg: #bfe6e3;
+    --pill-ink: #0f6674;
+    --max: 1080px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      color-scheme: dark;
+      --paper: #0b1f33;
+      --tint: #0e2840;
+      --surface: #12304b;
+      --ink: #e3eeee;
+      --ink-soft: #a9c1c4;
+      --heading: #ffffff;
+      --line: #1f4560;
+      --link: #7fd8d1;
+      --pill-bg: rgba(37,184,176,0.18);
+      --pill-ink: #9fe3dd;
+    }
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:72px;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.wordmark{
+    font-family:"Space Grotesk", "Inter", system-ui, sans-serif;
+    letter-spacing:-0.01em;
+  }
+  a{color:var(--link);}
+  a:hover{color:var(--aqua);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--aqua); outline-offset:3px; border-radius:4px;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+  img{max-width:100%;}
+
+  /* ---- nav ---- */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:rgba(10,37,64,0.94);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .navbar{display:flex; align-items:center; justify-content:space-between; padding:14px 24px;}
+  .wordmark{color:#fff; font-weight:700; font-size:1.15rem; text-decoration:none; display:flex; align-items:center; gap:8px;}
+  .wordmark:hover{color:#fff;}
+  .wordmark .dot{width:10px;height:10px;border-radius:50%;background:var(--aqua); display:inline-block;}
+  nav.links{display:flex; gap:26px;}
+  nav.links a{color:#cfe3e0; text-decoration:none; font-size:0.92rem; font-weight:500;}
+  nav.links a:hover{color:#fff;}
+  .nav-toggle{display:none; background:none; border:0; color:#fff; font-size:1.5rem; cursor:pointer;}
+
+  @media (max-width:760px){
+    nav.links{
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--navy); flex-direction:column; gap:0;
+      max-height:0; overflow:hidden; transition:max-height .25s ease;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+    nav.links.open{max-height:380px;}
+    nav.links a{padding:14px 24px; border-top:1px solid rgba(255,255,255,0.06);}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---- hero ---- */
+  .hero{
+    background:
+      radial-gradient(ellipse at 20% -10%, rgba(37,184,176,0.25), transparent 55%),
+      linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+    color:#fff;
+    padding:96px 0 120px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:-2px; height:80px;
+    background:var(--paper);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 80' preserveAspectRatio='none'%3E%3Cpath d='M0 40 C 200 90 400 0 600 30 C 800 60 1000 10 1200 40 L1200 80 L0 80 Z'/%3E%3C/svg%3E") bottom / 100% 100% no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 80' preserveAspectRatio='none'%3E%3Cpath d='M0 40 C 200 90 400 0 600 30 C 800 60 1000 10 1200 40 L1200 80 L0 80 Z'/%3E%3C/svg%3E") bottom / 100% 100% no-repeat;
+  }
+  .eyebrow{
+    display:inline-block; font-size:0.85rem; font-weight:600;
+    color:var(--aqua-light);
+    border:1px solid rgba(191,230,227,0.35); border-radius:999px; padding:6px 14px;
+    margin-bottom:22px;
+  }
+  .hero h1{font-size:clamp(2.6rem, 6vw, 4.2rem); margin:0 0 6px; font-weight:700; line-height:1.1;}
+  .hero .subtitle{font-size:clamp(1.1rem, 2.4vw, 1.4rem); color:var(--aqua-light); font-weight:600; margin:0 0 20px;}
+  .hero p.tagline{max-width:640px; font-size:1.08rem; color:#d7e6e4; margin:0 0 32px;}
+  .hero .meta-row{display:flex; flex-wrap:wrap; gap:14px; align-items:center;}
+  .badge{
+    background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18);
+    color:#fff; padding:9px 16px; border-radius:8px; font-size:0.92rem; font-weight:500;
+  }
+  .btn{
+    display:inline-block; padding:10px 20px; border-radius:8px; font-weight:600; font-size:0.92rem;
+    text-decoration:none; transition:background .15s ease;
+  }
+  .btn-primary{background:var(--aqua); color:var(--navy);}
+  .btn-primary:hover{background:#3fd0c7; color:var(--navy);}
+  .btn-ghost{background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.35);}
+  .btn-ghost:hover{background:rgba(255,255,255,0.1); color:#fff;}
+
+  /* ---- announcement ---- */
+  .announce{background:var(--paper); padding:8px 0 0;}
+  .announce .wrap{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 24px;}
+  .announce .wrap{border:1px solid var(--line); border-left:4px solid var(--aqua); border-radius:10px; background:var(--surface); padding:16px 22px; max-width:calc(var(--max) - 48px);}
+  .announce p{margin:0; color:var(--ink);}
+  .announce strong{color:var(--heading);}
+  .announce a{font-weight:600;}
+  @media (max-width:1100px){ .announce .wrap{margin:0 24px;} }
+
+  /* ---- sections ---- */
+  section{padding:76px 0;}
+  section h2{font-size:clamp(1.6rem,3.2vw,2.1rem); margin:0 0 12px; color:var(--heading); line-height:1.2;}
+  .kicker{color:var(--link); font-weight:600; font-size:0.92rem; margin:0 0 8px;}
+  .lead{font-size:1.08rem; color:var(--ink-soft); max-width:720px; margin:0 0 16px;}
+  .bg-paper{background:var(--paper);}
+  .bg-tint{background:var(--tint);}
+  .bg-surface{background:var(--surface);}
+
+  /* ---- about ---- */
+  .about-grid{display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr); gap:48px; align-items:start;}
+  @media (max-width:860px){ .about-grid{grid-template-columns:1fr; gap:32px;} }
+  .facts{
+    background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:26px 26px 10px;
+    margin:0;
+  }
+  .facts div{padding-bottom:16px; margin-bottom:16px; border-bottom:1px solid var(--line);}
+  .facts div:last-child{border-bottom:0; margin-bottom:0;}
+  .facts dt{font-size:0.82rem; font-weight:600; color:var(--link); margin-bottom:2px;}
+  .facts dd{margin:0; color:var(--ink); font-size:0.95rem;}
+  .facts dd a{text-decoration:none;}
+  .facts dd a:hover{text-decoration:underline;}
+  .facts ul{list-style:none; margin:0; padding:0;}
+  .facts li + li{margin-top:4px;}
+
+  /* ---- innovation workflow ---- */
+  .workflow{
+    list-style:none; padding:0; margin:36px 0 0;
+    display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px;
+  }
+  @media (max-width:860px){ .workflow{grid-template-columns:repeat(2,minmax(0,1fr));} }
+  @media (max-width:540px){ .workflow{grid-template-columns:1fr;} }
+  .wf-card{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:22px;}
+  .wf-step{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:30px; height:30px; border-radius:50%; background:var(--navy); color:#fff;
+    font-weight:700; font-size:0.85rem; margin-bottom:14px;
+  }
+  .wf-card h3{font-size:1.02rem; margin:0 0 8px; color:var(--heading);}
+  .wf-card p{margin:0; color:var(--ink-soft); font-size:0.93rem;}
+  .guardrail{
+    margin-top:20px; padding:20px 24px; border-radius:12px;
+    background:var(--navy); color:#d7e6e4;
+    display:grid; grid-template-columns:auto 1fr; gap:6px 20px; align-items:baseline;
+  }
+  .guardrail strong{font-family:"Space Grotesk","Inter",sans-serif; color:#fff; font-size:1.02rem;}
+  .guardrail p{margin:0; font-size:0.95rem;}
+  @media (max-width:640px){ .guardrail{grid-template-columns:1fr;} }
+
+  /* ---- outcomes ---- */
+  .outcomes-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px; margin-top:36px;}
+  .outcome-card{
+    background:var(--surface); border-radius:14px; padding:26px; border-top:4px solid var(--aqua);
+    box-shadow:0 2px 14px rgba(10,37,64,0.05);
+  }
+  .outcome-card h3{margin:0 0 10px; color:var(--heading); font-size:1.08rem;}
+  .outcome-card p{margin:0; color:var(--ink-soft); font-size:0.94rem;}
+
+  /* ---- team ---- */
+  .team-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:22px; margin-top:36px;}
+  .team-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:26px 24px 22px;
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .avatar{
+    position:relative; width:112px; height:112px; border-radius:50%; overflow:hidden;
+    background:linear-gradient(160deg, var(--teal), var(--navy));
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:10px; flex-shrink:0;
+    box-shadow:0 0 0 4px var(--pill-bg);
+  }
+  .avatar span{font-family:"Space Grotesk","Inter",sans-serif; color:#fff; font-weight:600; font-size:1.6rem;}
+  .avatar img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+  .team-card h3{margin:0; color:var(--heading); font-size:1.08rem;}
+  .team-role{
+    display:inline-block; align-self:flex-start; font-size:0.78rem; font-weight:600;
+    color:var(--pill-ink); background:var(--pill-bg); border-radius:999px; padding:3px 10px;
+  }
+  .team-org{color:var(--ink-soft); font-size:0.88rem; margin:0;}
+  .team-desc{color:var(--ink-soft); font-size:0.92rem; margin:4px 0 0;}
+  .team-card a.profile-link{font-size:0.88rem; font-weight:600; text-decoration:none; margin-top:auto; padding-top:8px;}
+  .team-card a.profile-link:hover{text-decoration:underline;}
+
+  /* ---- footer ---- */
+  footer{background:#081b2f; color:#93a9b5; padding:40px 0; font-size:0.9rem;}
+  footer .wrap{display:flex; flex-wrap:wrap; gap:14px 28px; align-items:center; justify-content:space-between;}
+  footer a{color:#cfe3e0;}
+  footer a:hover{color:#fff;}
+  .footer-links{display:flex; gap:20px; flex-wrap:wrap;}
+
+  /* ---- workshop page ---- */
+  .hero.compact{padding:80px 0 112px;}
+  .event-facts{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:18px 32px;
+    margin:8px 0 0; max-width:860px;
+  }
+  .event-facts div{border-left:2px solid rgba(191,230,227,0.4); padding-left:14px;}
+  .event-facts dt{font-size:0.85rem; color:var(--aqua-light); font-weight:600;}
+  .event-facts dd{margin:2px 0 0; color:#fff; font-size:1rem;}
+  .event-facts dd a{color:#fff; text-decoration:underline; text-decoration-color:rgba(255,255,255,0.4); text-underline-offset:3px;}
+  .event-facts dd a:hover{color:var(--aqua-light);}
+  .event-facts .small{display:block; color:#cfe3e0; font-size:0.9rem;}
+
+  .agenda{list-style:none; margin:32px 0 0; padding:0; max-width:860px; border-top:1px solid var(--line);}
+  .agenda li{
+    display:grid; grid-template-columns:132px minmax(0,1fr); gap:6px 28px;
+    padding:20px 0; border-bottom:1px solid var(--line);
+  }
+  .agenda time{font-weight:600; color:var(--heading); font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .agenda h3{margin:0; font-size:1.08rem; color:var(--heading);}
+  .agenda p{margin:6px 0 0; color:var(--ink-soft); font-size:0.97rem; max-width:640px;}
+  .agenda .who{display:inline-block; margin-top:10px; font-size:0.8rem; font-weight:600; color:var(--pill-ink); background:var(--pill-bg); border-radius:999px; padding:3px 10px;}
+  .agenda li.break{padding:12px 0;}
+  .agenda li.break time{color:var(--ink-soft); font-weight:500;}
+  .agenda li.break h3{font-family:"Inter",system-ui,sans-serif; font-weight:500; font-size:0.97rem; color:var(--ink-soft);}
+  .agenda li.discussion{border-left:3px solid var(--aqua); padding-left:16px; margin-left:-19px;}
+  @media (max-width:600px){
+    .agenda li{grid-template-columns:1fr; gap:4px;}
+    .agenda li.discussion{margin-left:0;}
+  }
+  .venue-grid{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:40px; align-items:start;}
+  @media (max-width:760px){ .venue-grid{grid-template-columns:1fr; gap:24px;} }
+  .venue-card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:24px 26px;}
+  .venue-card h3{margin:0 0 6px; color:var(--heading); font-size:1.1rem;}
+  .venue-card address{font-style:normal; color:var(--ink); line-height:1.6;}
+  .venue-card a{font-weight:600; display:inline-block; margin-top:12px;}
+  nav.links a[aria-current="page"]{color:#fff; text-decoration:underline; text-underline-offset:6px; text-decoration-color:var(--aqua);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="navbar wrap">
+    <a href="index.html" class="wordmark"><span class="dot"></span>BlueLab</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#innovation">Innovation</a>
+      <a href="index.html#outcomes">Outcomes</a>
+      <a href="index.html#team">Team</a>
+      <a href="workshop.html" aria-current="page">Practitioner workshop</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero compact" id="top">
+  <div class="wrap">
+    <span class="eyebrow">BlueLab</span>
+    <h1>Practitioner workshop</h1>
+    <dl class="event-facts">
+      <div>
+        <dt>Date</dt>
+        <dd>Friday 4 December 2026<span class="small">11:00 – 16:00</span></dd>
+      </div>
+      <div>
+        <dt>Venue</dt>
+        <dd><a href="#venue">Stayokay Maastricht</a><span class="small">Maasboulevard 101, 6211 JW Maastricht</span></dd>
+      </div>
+      <div>
+        <dt>Hosts</dt>
+        <dd>Rohan Nanda and Henrique Marcos<span class="small">Maastricht University</span></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section id="programme" class="bg-paper">
+  <div class="wrap">
+    <h2>Programme</h2>
+    <ol class="agenda">
+      <li>
+        <time>11:00 – 11:15</time>
+        <div><h3>Welcome and introductions</h3></div>
+      </li>
+      <li>
+        <time>11:15 – 11:45</time>
+        <div>
+          <h3>What is BlueLab?</h3>
+          <p>The idea behind the project: students act as compliance officers and work through realistic blue-economy cases, starting with marine genetic resources.</p>
+          <span class="who">Henrique Marcos</span>
+        </div>
+      </li>
+      <li>
+        <time>11:45 – 12:30</time>
+        <div>
+          <h3>How the platform works</h3>
+          <p>A short, non-technical walk-through of the workflow: what the AI tool does, and where the user checks its output against the legal sources. The workflow is built for teaching, but it is designed to support anyone doing compliance checks, from students to practitioners.</p>
+          <span class="who">Rohan Nanda</span>
+        </div>
+      </li>
+      <li class="break">
+        <time>12:30 – 13:30</time>
+        <div><h3>Lunch</h3></div>
+      </li>
+      <li class="discussion">
+        <time>13:30 – 14:15</time>
+        <div>
+          <h3>Discussion 1: Cases</h3>
+          <p>What situations or conflicts would make a good case? Who are the actors, and what is at stake?</p>
+        </div>
+      </li>
+      <li class="discussion">
+        <time>14:15 – 15:00</time>
+        <div>
+          <h3>Discussion 2: Materials</h3>
+          <p>Which regulations and documents should students work with, for example permits, contracts, due diligence declarations, or sample records?</p>
+        </div>
+      </li>
+      <li class="break">
+        <time>15:00 – 15:15</time>
+        <div><h3>Coffee</h3></div>
+      </li>
+      <li class="discussion">
+        <time>15:15 – 15:45</time>
+        <div>
+          <h3>Discussion 3: Questions and outputs</h3>
+          <p>What should students be asked to do? What would a good answer look like? Does the workflow fit how this work is done in practice?</p>
+        </div>
+      </li>
+      <li>
+        <time>15:45 – 16:00</time>
+        <div><h3>Wrap-up and next steps</h3></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="venue" class="bg-tint">
+  <div class="wrap">
+    <h2>Venue</h2>
+    <div class="venue-grid">
+      <div class="venue-card">
+        <h3>Stayokay Maastricht</h3>
+        <address>Maasboulevard 101<br>6211 JW Maastricht<br>The Netherlands</address>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Stayokay+Maastricht+Maasboulevard+101+6211+JW+Maastricht" target="_blank" rel="noopener">Open in Google Maps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Maastricht University: Law &amp; Tech Lab, Department of Advanced Computing Sciences, and BISS</span>
+    <div class="footer-links">
+      <a href="index.html">BlueLab home</a>
+      <a href="https://www.nwo.nl/en/projects/zayxj84194" target="_blank" rel="noopener">NWO project page</a>
+      <a href="https://github.com/MaastrichtU-BISS/bluelab" target="_blank" rel="noopener">GitHub repository</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var nav = document.querySelector('nav.links');
+    var toggle = document.querySelector('.nav-toggle');
+    toggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
+</body>
+</html>
